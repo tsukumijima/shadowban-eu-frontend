@@ -1,28 +1,28 @@
 <!doctype html>
 <html>
-  <head lang='en'>
-    <meta charset='utf-8'>
+  <head lang="en">
+    <meta charset="utf-8">
     <title>Twitter Shadowban Test</title>
     <meta description="Determine wether a Twitter user is shadow banned">
     <meta name="keywords" content="Twitter, Shadowban, Shadowbanned, Ban, Block, Quality Filter, QFD">
-    <meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1'>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <meta property="og:title" content="Twitter Shadowban Test">
     <meta property="og:description" content="Are you shadowbanned on Twitter?">
     <meta property="og:image" content="https://www.shadowban.eu/img/sm_preview.png">
     <meta property="og:url" content="https://www.shadowban.eu/">
     <meta property="og:site_name" content="Twitter Shadowban Test">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:alt" content="shadwoban.eu">
+    <meta name="twitter:image:alt" content="shadowban.eu">
     <base target="_blank" href="<%= baseHref %>">
 
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <link rel="prefetch" href="./img/gears.svg" />
 
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!--Import Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
   </head>
   <body>
     <% if (!production) { %>
@@ -146,7 +146,7 @@
                 <p class="noban-claim" data-i18n="functionality:limitVisibility.text">
                   {{functionality:limitVisibility.text}}
                 </p>
-                <img class="materialboxed" width="100%" src="/img/updated-tos.png" />
+                <img class="materialboxed" width="100%" src="./img/updated-tos.png" />
                 <p class="noban-claim-legacy" data-i18n="functionality:noShadowbanClaim.text">
                   {{functionality:noShadowbanClaim.text}}
                 </p>
