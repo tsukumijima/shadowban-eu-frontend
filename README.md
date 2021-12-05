@@ -49,11 +49,11 @@ The `<base href>` is set on build, depending on the `NODE_ENV`:
 The development value is taken from the `devServerConfig` object in `webpack.config.js`, including `basePath`.  
 Be aware that setting `<base href>` to `http://127.0.0.1:9000/`, but then visiting the site via `http://localhost:9000/` will work at first, but the browser will deny setting the URL to http://localhost:9000/testedName, when running a test.
  
-#### .api mocks
-During development, /src/.api/ is included to have the webpack-dev-server serve API responses.
+#### api mocks
+During development, /src/api/ is included to have the webpack-dev-server serve API responses.
 
 ```
-./src/.api/
+./src/api/
 ├── deboost
 ├── ghost
 ├── invalid

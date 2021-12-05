@@ -51,15 +51,15 @@ const copies = [{
   toType: 'dir',
 }];
 
-// include /src/.api/ in development builds; i.e. include API response mocks
-// Files in /src/.api/ will be served as responses to test requests,
+// include /src/api/ in development builds; i.e. include API response mocks
+// Files in /src/api/ will be served as responses to test requests,
 // according to the file's name.
 // When you test e.g. a username `ghost`, the contents of
-// /src/.api/ghost will be served.
+// /src/api/ghost will be served.
 if (!production) {
   copies.push({
-    from: path.resolve(__dirname, 'src', '.api'),
-    to: path.resolve(__dirname, 'dist', '.api'),
+    from: path.resolve(__dirname, 'src', 'api'),
+    to: path.resolve(__dirname, 'dist', 'api'),
     toType: 'dir',
   });
 }
@@ -166,7 +166,7 @@ const config = {
           : env.raw.BASE_HREF,
         production,
         buildVersion,
-        testUsers: !production ? readdirSync('./src/.api').join(', ') : undefined
+        testUsers: !production ? readdirSync('./src/api').join(', ') : undefined
       },
       minify: production ? {
         collapseWhitespace: true,
