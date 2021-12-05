@@ -2,7 +2,7 @@
 const path = require('path');
 const { readdirSync } = require('fs');
 const autoPrefixer = require('autoprefixer');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const I18nextVersioningPlugin = require('i18next-versioning-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -23,11 +23,15 @@ const buildVersion = `${packageVersion}-dev`;
 
 const devServerUrl = new URL(env.raw.BASE_HREF || 'http://127.0.0.1:9000');
 const devServerConfig = {
-  contentBase: path.join(__dirname, 'dist'),
   compress: true,
   port: devServerUrl.port,
   host: devServerUrl.hostname,
-  publicPath: devServerUrl.pathname
+  devMiddleware: {
+    publicPath: devServerUrl.pathname,
+  },
+  static: {
+    directory: path.join(__dirname, 'dist'),
+  },
 };
 
 const copies = [{
@@ -82,9 +86,9 @@ const config = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          MiniCssExtractPlugin.loader,
+          { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
           'css-loader',
-          { loader: 'postcss-loader', options: { plugins: [autoPrefixer] } },
+          { loader: 'postcss-loader', options: { postcssOptions: { plugins: [autoPrefixer] } } },
           'sass-loader'
         ],
       },
@@ -142,7 +146,7 @@ const config = {
       new TerserPlugin({
         parallel: true,
       }),
-      new OptimizeCssAssetsPlugin({}),
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
@@ -158,7 +162,7 @@ const config = {
       favicon: path.resolve(__dirname, 'src', 'img', 'favicon.png'),
       templateParameters: {
         baseHref: useDevServer
-          ? `http://${devServerConfig.host}:${devServerConfig.port}${devServerConfig.publicPath}`
+          ? `http://${devServerConfig.host}:${devServerConfig.port}${devServerConfig.devMiddleware.publicPath}`
           : env.raw.BASE_HREF,
         production,
         buildVersion,
@@ -184,7 +188,7 @@ const config = {
       cleanStaleWebpackAssets: false,
       verbose: true,
     }),
-    new CopyWebpackPlugin(copies),
+    new CopyWebpackPlugin({ patterns: copies }),
     new DefinePlugin({
       ...env.stringified,
       // i18nVersions - added by I18nextVersioningPlugin
