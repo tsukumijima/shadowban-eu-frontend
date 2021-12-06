@@ -6,13 +6,45 @@ import LocalStorageBackend from 'i18next-localstorage-backend';
 import XHRBackend from 'i18next-xhr-backend';
 import BrowserLanguageDetector from 'i18next-browser-languagedetector';
 
+// add detector
+// ref https://github.com/i18next/i18next-browser-languageDetector/blob/master/src/browserLookups/navigator.js
+const navigatorEx = {
+  name: 'navigator-ex',
+
+  lookup(options) {
+    let found = [];
+
+    if (typeof navigator !== 'undefined') {
+      if (navigator.languages) { // chrome only; not an array, so can't use .push.apply instead of iterating
+        for (let i=0; i < navigator.languages.length; i++) {
+          found.push(navigator.languages[i]);
+        }
+      }
+      if (navigator.userLanguage) {
+        found.push(navigator.userLanguage);
+      }
+      if (navigator.language) {
+        found.push(navigator.language);
+      }
+    }
+
+    found = found.filter(word => word.includes('-'));
+    return found.length > 0 ? found : undefined;
+  }
+};
+const browserLanguageDetector = new BrowserLanguageDetector();
+browserLanguageDetector.addDetector(navigatorEx);
+
 export default class I18N {
   static async init() {
     await i18next
       .use(ChainedBackend)
-      .use(BrowserLanguageDetector)
+      .use(browserLanguageDetector)
       .init({
         fallbackLng: 'en-US',
+        detection: {
+          order: ['navigator-ex'],
+        },
         debug: process.env.NODE_ENV === 'development',
         ns: ['common', 'tasks', 'functionality', 'techinfo'],
         defaultNS: 'common',
