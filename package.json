@@ -1,11 +1,11 @@
 {
   "name": "shadowban-eu-frontend",
   "version": "3.2.0",
-  "description": "Frontend for https://shadowban.eu",
+  "description": "Frontend for Twitter Shadowban Test",
   "author": "Raphael Beer <raphael.beer@protonmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shadowban-eu/shadowban-eu-frontend.git"
+    "url": "https://github.com/tsukumijima/shadowban-eu-frontend.git"
   },
   "license": "GPL-3.0-only",
   "private": true,
@@ -15,8 +15,7 @@
     "build:dev": "cross-env NODE_ENV=development webpack",
     "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint -c ./.eslintrc ./src/js/**",
-    "pre-commit": "npm run lint",
-    "deploy:dev": "ansible-playbook ansible/deploy_naughty.yml"
+    "pre-commit": "npm run lint"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

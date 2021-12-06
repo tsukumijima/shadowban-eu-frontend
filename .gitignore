@@ -52,6 +52,7 @@ node_modules
 # .env
 .env
 .env.*
+!.env.example
 .ht*
 
 ansible/

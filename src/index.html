@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
     <meta property="og:title" content="Twitter Shadowban Test">
     <meta property="og:description" content="Are you shadowbanned on Twitter?">
-    <meta property="og:image" content="https://www.shadowban.eu/img/sm_preview.png">
-    <meta property="og:url" content="https://www.shadowban.eu/">
+    <meta property="og:image" content="<%= baseHref %>img/sm_preview.png">
+    <meta property="og:url" content="<%= baseHref %>">
     <meta property="og:site_name" content="Twitter Shadowban Test">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image:alt" content="shadowban.eu">
+    <meta name="twitter:image:alt" content="Twitter Shadowban Test">
     <base target="_blank" href="<%= baseHref %>">
 
     <link rel="manifest" href="./manifest.json" />
@@ -187,9 +187,10 @@
 
     <footer class="section">
       <div class="row">
-        <div class="col offset-s2 s8 center-align">
-          <br />
-          Made in Germany by <a href="https://twitter.com/shadowban_eu" target="_blank" rel="noopener noreferrer">@shadowban_eu</a>
+        <div class="col offset-s2 s8 center-align" data-i18n="common:note"></div>
+        <div class="col offset-s2 s8 center-align" style="margin-top: .25em">
+          Made in Germany by <a href="https://twitter.com/shadowban_eu" target="_blank" rel="noopener noreferrer">@shadowban_eu</a>,
+          modified by tsukumi (<a href="https://github.com/tsukumijima" target="_blank" rel="noopener noreferrer">GitHub</a>)
         </div>
       </div>
     </footer>
