@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head lang="en">
+  <head>
     <meta charset="utf-8">
     <title>Twitter Shadowban Test</title>
     <meta description="Determine wether a Twitter user is shadow banned">
@@ -23,6 +23,7 @@
     <!--Import Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap">
   </head>
   <body>
     <% if (!production) { %>
@@ -56,7 +57,7 @@
           </div>
         </div>
       </div>
-      <div class="row header-buttons">
+      <!-- <div class="row header-buttons">
         <div class="col 6">
           <div class="loadable-container">
             <button
@@ -81,7 +82,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <section id="controls" class="row">
@@ -97,7 +98,7 @@
                 required
                 pattern="^[A-Za-z0-9_]{1,15}$"
                 data-position="bottom"
-                data-tooltip="Please provide a valid Twitter @handle!"
+                data-tooltip=""
                 maxlength="15"
               >
               <label
@@ -187,8 +188,8 @@
 
     <footer class="section">
       <div class="row">
-        <div class="col offset-s2 s8 center-align" data-i18n="common:note"></div>
-        <div class="col offset-s2 s8 center-align" style="margin-top: .25em">
+        <div class="col s11 center-align" style="float: none; margin: 0 auto;" data-i18n="common:note"></div>
+        <div class="col s11 center-align" style="float: none; margin: 0 auto; margin-top: .25em;">
           Made in Germany by <a href="https://twitter.com/shadowban_eu" target="_blank" rel="noopener noreferrer">@shadowban_eu</a>,
           modified by tsukumi (<a href="https://github.com/tsukumijima" target="_blank" rel="noopener noreferrer">GitHub</a>)
         </div>
@@ -197,7 +198,7 @@
     <div id="task-item-template" class="hide">
       <li data-task-id="NOTICE--{{task.id}}--ME">
         <div class="collapsible-header" data-task-component="header">
-          <i class="material-icons notranslate" data-task-component="icon"><!-- task.icon --></i>
+          <i class="material-icons notranslate" data-task-component="icon" style="flex-shrink: 0;"><!-- task.icon --></i>
           <div class="task-message" data-task-component="message">
             <span><!-- task.message --></span>
           </div>
@@ -218,7 +219,7 @@
           <ul id="NOTICE--{{task.faq.id}}--ME" class="collapsible hide" data-task-component="faq">
             <li class="techInfo">
               <div class="collapsible-header">
-              <span>Technical information about the result</span>
+              <span data-i18n="techinfo:about"></span>
               </div>
               <div class="collapsible-body">
                 <p class="techContent">
