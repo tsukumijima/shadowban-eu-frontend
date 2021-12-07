@@ -12,7 +12,8 @@
     "more_replies": {
       "ban": true,
       "in_reply_to": "1161665852820852736",
-      "tweet": "1161666623843065856"
+      "tweet": "1161666623843065856",
+      "stage": 1
     },
     "search": false,
     "typeahead": false
