@@ -28,7 +28,7 @@ const navigatorEx = {
       }
     }
 
-    found = found.filter(word => word.includes('-'));
+    found = found.filter(word => !word.includes('-'));
     return found.length > 0 ? found : undefined;
   }
 };
@@ -41,7 +41,7 @@ export default class I18N {
       .use(ChainedBackend)
       .use(browserLanguageDetector)
       .init({
-        fallbackLng: 'en-US',
+        fallbackLng: 'en',
         detection: {
           order: ['navigator-ex'],
         },
@@ -73,7 +73,7 @@ export default class I18N {
 
   static setInterpolationDefaults() {
     i18next.options.interpolation.defaultVariables = {
-      screenName: i18next.t('common:screenNameDefault')
+      screenName: 'username'
     };
   }
 

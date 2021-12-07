@@ -1,4 +1,5 @@
 {
+  "about": "Technical information about the result",
   "search": {
     "text": "We {{foundOrNot}} by searching for {{searchLink}}.",
     "notFound": "did not find a tweet",
