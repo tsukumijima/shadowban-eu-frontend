@@ -87,7 +87,7 @@ const config = {
         use: [
           'style-loader',
           { loader: MiniCssExtractPlugin.loader, options: { esModule: false } },
-          'css-loader',
+          { loader: 'css-loader', options: { url: false } },
           { loader: 'postcss-loader', options: { postcssOptions: { plugins: [autoPrefixer] } } },
           'sass-loader'
         ],
@@ -179,7 +179,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash:7].css',
     }),
-    new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif|svg)$/i }),
+    new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif)$/i }),
     new CleanWebpackPlugin({
       /**
        * Some plugins used do not correctly save to webpack's asset list.
