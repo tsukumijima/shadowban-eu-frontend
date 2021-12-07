@@ -8,6 +8,18 @@ Frontend (this repository):
 Backend:   
 [tsukumijima/shadowban-eu-backend](https://github.com/tsukumijima/shadowban-eu-backend)
 
+## About this fork
+
+In this fork, we have made various improvements, such as tidying up the code and updating dependencies.
+
+Node.js has been migrated and updated to Node.js 14, npm to npm 7, and webpack to webpack 5.  
+In connection with this, there are some changes in the configuration of some packages.  
+Also, webpack.config.js has been changed to support webpack 5.
+
+In addition, we have cleaned up the code and added Japanese translation.  
+The code itself was prepared to be multilingualized, but the translation files were only available in English.  
+We applied this composition and moved the English hard-coded parts to the translation files, so that can be displayed in Japanese when the browser requires Japanese.
+
 ## Setup
 
 Beforehand, Node.js 14 and npm 7 must be installed.
