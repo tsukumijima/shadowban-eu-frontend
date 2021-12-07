@@ -19,6 +19,7 @@ export default class UI {
     this.screenNamePrefix = document.querySelector('#controls .input-field .prefix');
     this.headerScreenName = document.getElementById('headerScreenName');
     this.screenName.addEventListener('keyup', this.updateHeaderScreenName, true);
+    this.screenName.dataset.tooltip = I18N.getSingleValue('common:tooltip');
 
     // button, initiating test
     this.checkButton = document.getElementById('check');
@@ -115,7 +116,7 @@ export default class UI {
       classes.remove('invalid');
       classes.remove('valid');
       I18N.updateWithInterpolation(this.headerScreenName, {
-        screenName: I18N.getSingleValue('common:screenNameDefault')
+        screenName: 'username'
       });
       return false;
     }
@@ -234,7 +235,7 @@ export default class UI {
     this.updateTask({
       id: 'checkUser',
       status: 'running',
-      msg: `Running test for @${screenName}.`
+      msg: I18N.getSingleValue('tasks:checkUser.running', { screenName })
     }, {
       id: 'checkSearch',
       status: 'reset',
@@ -246,7 +247,7 @@ export default class UI {
     }, {
       id: 'checkConventional',
       status: 'reset',
-      msg: 'Thread Ban'
+      msg: 'Ghost Ban'
     }, {
       id: 'checkBarrier',
       status: 'reset',

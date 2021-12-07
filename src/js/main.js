@@ -21,7 +21,7 @@ const fullTest = async (screenName) => {
     ui.updateTask({
       id: 'checkUser',
       status: 'warn',
-      msg: 'You are offline.'
+      msg: I18N.getSingleValue('tasks:checkUser.result.failReason1')
     });
     return;
   }
@@ -29,7 +29,7 @@ const fullTest = async (screenName) => {
     ui.updateTask({
       id: 'checkUser',
       status: 'warn',
-      msg: 'Rate limit exceeded. Please try again in a minute!'
+      msg: I18N.getSingleValue('tasks:checkUser.result.failReason2')
     });
     return;
   }
@@ -37,7 +37,7 @@ const fullTest = async (screenName) => {
     ui.updateTask({
       id: 'checkUser',
       status: 'warn',
-      msg: 'Server error. Please try again later.'
+      msg: I18N.getSingleValue('tasks:checkUser.result.failReason3')
     });
     return;
   }
@@ -48,20 +48,20 @@ const fullTest = async (screenName) => {
 
   let failReason;
   if (!result.profile.exists) {
-    failReason = 'does not exist';
+    failReason = I18N.getSingleValue('tasks:checkUser.result.failReason4');
   } else if (result.profile.protected) {
-    failReason = 'is protected';
+    failReason = I18N.getSingleValue('tasks:checkUser.result.failReason5');
   } else if (result.profile.suspended) {
-    failReason = 'has been suspended';
+    failReason = I18N.getSingleValue('tasks:checkUser.result.failReason6');
   } else if (!result.profile.has_tweets) {
-    failReason = 'has no tweets';
+    failReason = I18N.getSingleValue('tasks:checkUser.result.failReason7');
   }
 
   if (failReason) {
     ui.updateTask({
       id: 'checkUser',
       status: 'warn',
-      msg: `${userLink} ${failReason}.`
+      msg: `${userLink} ${failReason}`
     });
     return;
   }
@@ -69,17 +69,17 @@ const fullTest = async (screenName) => {
   ui.updateTask({
     id: 'checkUser',
     status: 'ok',
-    msg: `${userLink} exists.`
+    msg: `${userLink} ${I18N.getSingleValue('tasks:checkUser.result.ok')}`,
   });
 
-  const resultsDefault = ['warn', 'We were unable to test for technical reasons.'];
+  const resultsDefault = ['warn', I18N.getSingleValue('tasks:resultsDefault')];
 
   let typeaheadResult = resultsDefault;
   if (result.tests.typeahead === true) {
-    typeaheadResult = ['ok', 'No search suggestion ban.'];
+    typeaheadResult = ['ok', I18N.getSingleValue('tasks:checkSuggest.result.ok')];
   }
   if (result.tests.typeahead === false) {
-    typeaheadResult = ['ban', 'Search suggestion ban.'];
+    typeaheadResult = ['ban', I18N.getSingleValue('tasks:checkSuggest.result.ban')];
   }
   ui.updateTask({
     id: 'checkSuggest',
@@ -89,10 +89,10 @@ const fullTest = async (screenName) => {
 
   let searchResult = resultsDefault;
   if (result.tests.search) {
-    searchResult = ['ok', 'No search ban.'];
+    searchResult = ['ok', I18N.getSingleValue('tasks:checkSearch.result.ok')];
   }
   if (result.tests.search === false) {
-    searchResult = ['ban', 'Search ban.'];
+    searchResult = ['ban', I18N.getSingleValue('tasks:checkSearch.result.ban')];
   }
   ui.updateTask({
     id: 'checkSearch',
@@ -103,9 +103,9 @@ const fullTest = async (screenName) => {
 
   let threadResult = resultsDefault;
   if (result.tests.ghost.ban === false) {
-    threadResult = ['ok', 'No ghost ban.'];
+    threadResult = ['ok', I18N.getSingleValue('tasks:checkConventional.result.ok')];
   } else if (result.tests.ghost.ban === true) {
-    threadResult = ['ban', 'Ghost ban.'];
+    threadResult = ['ban', I18N.getSingleValue('tasks:checkConventional.result.ban')];
   }
   ui.updateTask({
     id: 'checkConventional',
@@ -117,14 +117,14 @@ const fullTest = async (screenName) => {
   let barrierResult = resultsDefault;
   if (result.tests.more_replies) {
     if (result.tests.more_replies.error === 'ENOREPLIES') {
-      barrierResult = ['warn', `${screenName} has not made any reply tweets.`];
+      barrierResult = ['warn', I18N.getSingleValue('tasks:checkBarrier.result.warn', { screenName })];
     } else if (result.tests.more_replies.ban === false) {
-      barrierResult = ['ok', 'No reply deboosting detected.'];
+      barrierResult = ['ok', I18N.getSingleValue('tasks:checkBarrier.result.ok')];
     } else if (result.tests.more_replies.ban === true) {
       const offensive = result.tests.more_replies.stage <= 0
         ? ''
-        : ' The tweet we found was in the section for offensive tweets.';
-      barrierResult = ['ban', `Reply deboosting detected.${offensive}`];
+        : I18N.getSingleValue('tasks:checkBarrier.result.offensive');
+      barrierResult = ['ban', `${I18N.getSingleValue('tasks:checkBarrier.result.ban')}${offensive}`];
     }
   }
   if ('more_replies' in result.tests) {
