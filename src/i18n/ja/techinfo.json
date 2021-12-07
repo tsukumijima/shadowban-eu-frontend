@@ -1,0 +1,18 @@
+{
+  "about": "テスト結果に関する技術情報",
+  "search": {
+    "text": "{{searchLink}} と検索{{foundOrNot}}。",
+    "notFound": "しましたが、ツイートが見つかりませんでした",
+    "found": "すると、<a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">ツイート</a>が見つかりました"
+  },
+  "barrier": {
+    "text": "ユーザーが<a href=\"https://twitter.com/i/status/{{replyToId}}\" rel=\"noopener noreferrer\">返信</a>した<a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">ツイート</a>が見つかりました。<br />{{explanation}}",
+    "highQuality": "ツイートは非表示にはなっていません。",
+    "lowQuality": "表示するには、[返信をさらに表示] をクリックする必要があります{{abuse}}。",
+    "abuseQuality": "（アカウントが不快感を与える可能性があると評価されたため、もう一度クリックする必要があります）"
+  },
+  "thread": {
+    "searchBanned": "Ghost Ban は Search Ban を意味します。 アカウントは Search Ban されていないため、Ghost Ban にはなりません。",
+    "text": "ユーザーのプロフィールに<a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">少なくとも1つの返信があるツイート</a>が見つかりました。<a href=\"https://twitter.com/i/status/{{replyId}}\" rel=\"noopener noreferrer\">返信ツイート</a>は切り離されています。"
+  }
+}
