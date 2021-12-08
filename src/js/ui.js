@@ -96,7 +96,7 @@ export default class UI {
 
   runTest() {
     this.checkButton.focus(); // remove focus from input field, to close mobile screen kbd
-    this.showDonateModal();
+    // this.showDonateModal();
     this.reset(this.screenName.value);
     this.setLocationForScreenName();
     this.lock();
