@@ -21,7 +21,7 @@ const useDevServer = !production && process.env.WEBPACK_DEV_SERVER === 'true';
 
 const buildVersion = `${packageVersion}-dev`;
 
-const devServerUrl = new URL(env.raw.BASE_HREF || 'http://127.0.0.1:9000');
+const devServerUrl = new URL('http://127.0.0.1:9000');
 const devServerConfig = {
   compress: true,
   port: devServerUrl.port,
@@ -164,6 +164,7 @@ const config = {
         baseHref: useDevServer
           ? `http://${devServerConfig.host}:${devServerConfig.port}${devServerConfig.devMiddleware.publicPath}`
           : env.raw.BASE_HREF,
+        googleAnalytics: env.raw.GOOGLE_ANALYTICS,
         production,
         buildVersion,
         testUsers: !production ? readdirSync('./src/api').join(', ') : undefined
