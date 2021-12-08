@@ -194,7 +194,7 @@ export default class UI {
       }
     }
 
-    const pathMatch = url.pathname.match(/^\/(?:@|%40)?([A-Za-z0-9_]{1,15})$/);
+    const pathMatch = url.pathname.match(/^.*?\/(?:@|%40)?([A-Za-z0-9_]{1,15})$/);
     if (pathMatch && !screenName) {
       [, screenName] = pathMatch;
     }
