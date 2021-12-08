@@ -50,7 +50,7 @@ npm run build
 
 The `<base href>` is set on build, depending on the `NODE_ENV`:
 
-  - production: https://tools.tsukumijima.net/shadowban-tests/
+  - production: https://tools.tsukumijima.net/shadowban-tester/
   - development: http://127.0.0.1:9000/
 
 You can change the base href by editing `BASE_HREF` in the .env file.
