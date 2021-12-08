@@ -21,7 +21,7 @@ const useDevServer = !production && process.env.WEBPACK_DEV_SERVER === 'true';
 
 const buildVersion = `${packageVersion}-dev`;
 
-const devServerUrl = new URL('http://127.0.0.1:9000');
+const devServerUrl = new URL('http://localhost:9000');
 const devServerConfig = {
   compress: true,
   port: devServerUrl.port,
