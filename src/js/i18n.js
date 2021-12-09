@@ -12,6 +12,12 @@ const navigatorEx = {
   name: 'navigator-ex',
 
   lookup(options) {
+
+    // display in Japanese for Google crawlers
+    if (navigator.userAgent.match(/Googlebot/)) {
+      return ['ja'];
+    }
+
     let found = [];
 
     if (typeof navigator !== 'undefined') {
