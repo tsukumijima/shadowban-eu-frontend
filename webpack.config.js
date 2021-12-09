@@ -169,13 +169,7 @@ const config = {
         buildVersion,
         testUsers: !production ? readdirSync('./src/api').join(', ') : undefined
       },
-      minify: production ? {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      } : false
+      minify: false
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash:7].css',
