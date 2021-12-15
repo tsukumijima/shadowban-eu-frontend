@@ -29,7 +29,7 @@ export default class TechInfo {
   }
 
   static updateBarrier(results) {
-    if (!results.tests.more_replies) {
+    if (!results.tests.more_replies || 'error' in results.tests.more_replies) {
       return;
     }
     document.querySelector('#barrierFAQ').classList.remove('hide');
@@ -53,7 +53,7 @@ export default class TechInfo {
   }
 
   static updateThread(results) {
-    if (!results.tests.ghost) {
+    if (!results.tests.ghost || 'error' in results.tests.ghost) {
       return;
     }
     document.querySelector('#threadFAQ').classList.remove('hide');
