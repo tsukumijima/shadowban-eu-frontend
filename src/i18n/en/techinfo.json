@@ -13,6 +13,8 @@
   },
   "thread": {
     "searchBanned": "A ghost ban implies a search ban. Since the account is not search banned, it cannot be ghost banned.",
-    "text": "We found <a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">a tweet with at least one reply</a> on the user's profile. A <a href=\"https://twitter.com/i/status/{{replyId}}\" rel=\"noopener noreferrer\">reply tweet</a> is {{detached}} detached."
+    "text": "We found <a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">a tweet with at least one reply</a> on the user's profile. A <a href=\"https://twitter.com/i/status/{{replyId}}\" rel=\"noopener noreferrer\">reply tweet</a> is {{detached}}.",
+    "detached": "detached",
+    "notDetached": "not detached"
   }
 }

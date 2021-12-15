@@ -65,7 +65,7 @@ export default class TechInfo {
     contentElement.innerHTML = I18N.getSingleValue('techinfo:thread.text', {
       tweetId: results.tests.ghost.tweet,
       replyId: results.tests.ghost.reply,
-      detached: results.tests.ghost.ban ? '' : 'not'
+      detached: results.tests.ghost.ban ? I18N.getSingleValue('techinfo:thread.detached') : I18N.getSingleValue('techinfo:thread.notDetached')
     });
   }
 

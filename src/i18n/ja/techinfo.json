@@ -13,6 +13,8 @@
   },
   "thread": {
     "searchBanned": "Ghost Ban は Search Ban を意味します。 アカウントは Search Ban されていないため、Ghost Ban にはなりません。",
-    "text": "ユーザーのプロフィールに<a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">少なくとも1つの返信があるツイート</a>が見つかりました。<a href=\"https://twitter.com/i/status/{{replyId}}\" rel=\"noopener noreferrer\">返信ツイート</a>は切り離されています。"
+    "text": "ユーザーのプロフィールに<a href=\"https://twitter.com/i/status/{{tweetId}}\" rel=\"noopener noreferrer\">少なくとも1つの返信があるツイート</a>が見つかりました。<a href=\"https://twitter.com/i/status/{{replyId}}\" rel=\"noopener noreferrer\">返信ツイート</a>は{{detached}}。",
+    "detached": "切り離されています",
+    "notDetached": "切り離されていません"
   }
 }
